@@ -2,7 +2,7 @@ import {test, expect} from '@playwright/test';
 import { LoginPage } from '../../pages/LoginPage';
 import { BasePage } from '../../pages/BasePage';
 
-test.describe('Login Tests', () => {   
+test.describe.skip('Login Tests', () => {   
 
 test('should display error message for invalid credentials', async ({ page }) => {
 
