@@ -17,8 +17,8 @@ jobs:
       ENV: ${{ secrets.ENV }}
       USERNAME: ${{ secrets.USERNAME }}
       PASSWORD: ${{ secrets.PASSWORD }}
-      WRONG_USERNAME: ${{ secrets.WRONG_USERNAME }}
-      WRONG_PASSWORD: ${{ secrets.WRONG_PASSWORD }}
+    #   WRONG_USERNAME: ${{ secrets.WRONG_USERNAME }}
+    #   WRONG_PASSWORD: ${{ secrets.WRONG_PASSWORD }}
 
     steps:
       - name: Checkout Code

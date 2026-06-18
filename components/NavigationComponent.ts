@@ -32,14 +32,13 @@ export class NavigationComponent {
     return this.page.getByRole('link', { name: 'About' });
   }
 
-     menuLinkByName(menuName:string): Locator{
-    return  this.page.getByRole('link', {name:menuName});
+ private menuLinkByName(menuName: string): Locator {
+    return this.page.getByRole('link', { name: menuName });
+  }
 
-}
-
-async clickMenuLinkByName(menuName:string)  {
-    
-}
+  async clickMenuLinkByName(menuName: string): Promise<void> {
+    await this.menuLinkByName(menuName).click();
+  }
 
    async clickOnNavMenu(menuName: string) {
     await this.navMenu().click();
