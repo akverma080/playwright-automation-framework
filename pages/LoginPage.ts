@@ -3,13 +3,12 @@ import { environments } from '../config/config';
 import { BasePage } from './BasePage';
 
 
-export class LoginPage extends BasePage {
+export class LoginPage extends BasePage {  
 
 
 async openLogin(): Promise<void> {
     await this.navigateToLogin();
   }
-
  
 
   async loginWithDefaultUser(): Promise<void> {

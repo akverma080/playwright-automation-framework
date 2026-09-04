@@ -8,14 +8,16 @@ export class ProductCategory  {
 
     constructor(protected page: Page) {}
 
+async getPageTitle(): Promise<string> {
+    return await this.page.title();
+  }
 
-async getPageTitle(): Promise<string> { 
-    return await this.pageTitle().textContent() || '';
-}
+  async getPageHeading(title: string): Promise<string> {
+    return (await this.pageTitle(title).textContent()) ?? '';
+  }
 
-
-private pageTitle() {
-  return this.page.locator('.wp-block-cover__inner-container h1');
+private pageTitle(title: string) {
+  return this.page.getByRole('heading', { name: title, level: 1 });
 
 
 }

@@ -66,6 +66,7 @@ Run specific test
 
 ```bash
 npx playwright test tests/login/login.spec.ts
+npx playwright test tests/UI/product-details.spec.ts --headed
 ```
 
 Run in headed mode
