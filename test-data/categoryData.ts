@@ -10,3 +10,5 @@ export const categoryType = [
   'For Women',
   'Unisex',
 ];
+
+
