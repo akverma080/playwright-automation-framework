@@ -12,7 +12,8 @@ test.describe('Home Page', () => {
 
   categoryType.forEach((category, index) => {
     test(`should display for ${category} link`, async ({ homePage, productCategory, navigationComponent }) => {     
-      await navigationComponent.clickMenuLinkByName(category);
+      await navigationComponent.clickMenuLinkByName(category); 
+          console.log(`Category: ${category}`);      
       const title = await productCategory.getPageHeading(category);
       expect(title).toContain(category);
 

@@ -8,7 +8,7 @@ export default defineConfig({
 
   fullyParallel: true,
 
-  workers: 4,
+  workers: 1,
 
   use: {
     baseURL: process.env.BASE_URL,

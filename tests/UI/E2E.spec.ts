@@ -1,33 +1,23 @@
-// import { test, expect } from '../../fixtures/fixture';
-// import { HomePage } from '../pages/HomePage'
-// import { NavigationComponent } from '../components/NavigationComponent';
-// import { ProductCategory } from '../pages/ProductCategory';
-// import { config } from '../config/config';
+import { expect, test } from '../../fixtures/fixture'
+import { productNames } from '../../pages/ProductCategory';
+import { categoryType } from '../../test-data/categoryData';
 
-// test.describe('Home Page', () => {
+test.describe('E2E Tests', () => {
 
+    test('Place Order', async ({ homePage, navigationComponent, productCategory, cartPage, checkoutPage, orderConfirmationPage }) => {
 
-//   test('should display the correct title', async ({ productCategory }) => {
-//     const homePage = new HomePage(page);
-//     await homePage.navigateToHome();
-//     const pageTitle = await productCategory.title();
-//     expect(pageTitle).toContain('Scentelio');
-//   });
+        const forMensCategory = categoryType[0]
+        await navigationComponent.clickMenuLinkByName(forMensCategory)
+        await productCategory.clickAddToCartButton(productNames.AquaDGIO)
+        await productCategory.clickView()
+        await cartPage.clickCheckoutButton()
+        await checkoutPage.placeOrder()
+        const orderReceivedHeading =
+            orderConfirmationPage.getOrderReceivedHeading()
+        await expect(orderReceivedHeading).toBeVisible()
+        const orderConfirmationMessage =
+            orderConfirmationPage.getThankYouMessage()
+        await expect(orderConfirmationMessage).toBeVisible()
+    })
 
-
-//   test('should display for men link', async ({ productCategory }) => {
-
-//     const homePage = new HomePage(page);
-//     await homePage.navigateToHome();
-//     const nav = new NavigationComponent(page);
-
-//     await nav.clickMenuLinkByName(config.category.forMen);
- 
-//     const title = await productCategory.getPageTitle();
-//     expect(title).toContain('For Men');
-
-//   });
-
-
-
-// });
+})

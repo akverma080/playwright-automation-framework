@@ -3,12 +3,18 @@ import { LoginPage } from '../pages/LoginPage';
 import { ProductCategory } from '../pages/ProductCategory';
 import { NavigationComponent } from '../components/NavigationComponent';
 import { HomePage } from '../pages/HomePage';
+import { CartPage } from '../pages/CartPage';
+import { CheckoutPage } from '../pages/CheckoutPage';
+import { OrderConfirmationPage } from '../pages/OrderConfirmationPage';
 
 type Fixtures = {
   loginPage: LoginPage;
   productCategory: ProductCategory;
   navigationComponent: NavigationComponent;
   homePage: HomePage
+  cartPage: CartPage;
+  checkoutPage: CheckoutPage;
+  orderConfirmationPage:OrderConfirmationPage
 };
 
 export const test = base.extend<Fixtures>({
@@ -29,6 +35,15 @@ export const test = base.extend<Fixtures>({
   productCategory: async ({ page }, use) => {
     await use(new ProductCategory(page));
   },
+  cartPage: async ({ page }, use) => {
+    await use(new CartPage(page));
+  },
+  checkoutPage: async ({ page }, use) => {
+    await use(new CheckoutPage(page));
+  },
+  orderConfirmationPage: async ({ page }, use) => {
+    await use(new OrderConfirmationPage(page));
+  }
 });
 
 export { expect };
