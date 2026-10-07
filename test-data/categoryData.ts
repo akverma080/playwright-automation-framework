@@ -5,7 +5,7 @@ export type CategoryConfig  = {
 }
 
 
-export const categoryType = [
+export const categoryType:string[] = [
   'For Men',
   'For Women',
   'Unisex',

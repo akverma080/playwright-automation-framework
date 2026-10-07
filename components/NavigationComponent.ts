@@ -38,6 +38,11 @@ export class NavigationComponent {
 
   async clickMenuLinkByName(menuName: string): Promise<void> {
     await this.menuLinkByName(menuName).click();
+    await this.page.waitForLoadState('domcontentloaded');
+  }
+
+  async waitForPageLoad(): Promise<void> {
+    await this.page.waitForLoadState('domcontentloaded');
   }
 
    async clickOnNavMenu(menuName: string) {
